@@ -116,7 +116,7 @@ module.exports= function (opts)
                 });
             }
 
-            return merged;
+            return prune(merged);
         };
 
 
