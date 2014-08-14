@@ -1,0 +1,28 @@
+{
+  "name": "vclock",
+  "version": "0.0.0",
+  "description": "Pruning vector clocks",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aaaristo/vclock.git"
+  },
+  "keywords": [
+    "vector",
+    "clock",
+    "distributed",
+    "prune"
+  ],
+  "author": "aaaristo",
+  "license": "Apache2",
+  "bugs": {
+    "url": "https://github.com/aaaristo/vclock/issues"
+  },
+  "homepage": "https://github.com/aaaristo/vclock",
+  "dependencies": {
+    "underscore": "^1.6.0"
+  }
+}
