@@ -1,6 +1,6 @@
 {
   "name": "pvclock",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Pruning vector clocks",
   "main": "index.js",
   "scripts": {
