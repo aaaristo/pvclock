@@ -102,11 +102,19 @@ module.exports= function (opts)
         {
             var merged= {};
 
-            actors(a, b).forEach(function(actor)
-            {
-               merged[actor]= { v: Math.max(val(a,actor),val(b,actor)),
-                                t: Math.max(time(a,actor),time(b,actor)) };
-            });
+            if (Array.isArray(a))
+              a.forEach(function (vclock)
+              {
+                 merged= merge(merged,vclock);
+              });
+            else
+            { 
+                actors(a, b).forEach(function(actor)
+                {
+                   merged[actor]= { v: Math.max(val(a,actor),val(b,actor)),
+                                    t: Math.max(time(a,actor),time(b,actor)) };
+                });
+            }
 
             return merged;
         };
