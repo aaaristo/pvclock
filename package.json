@@ -1,5 +1,5 @@
 {
-  "name": "vclock",
+  "name": "pvclock",
   "version": "0.0.0",
   "description": "Pruning vector clocks",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/aaaristo/vclock.git"
+    "url": "git://github.com/aaaristo/pvclock.git"
   },
   "keywords": [
     "vector",
@@ -19,9 +19,9 @@
   "author": "aaaristo",
   "license": "Apache2",
   "bugs": {
-    "url": "https://github.com/aaaristo/vclock/issues"
+    "url": "https://github.com/aaaristo/pvclock/issues"
   },
-  "homepage": "https://github.com/aaaristo/vclock",
+  "homepage": "https://github.com/aaaristo/pvclock",
   "dependencies": {
     "underscore": "^1.6.0"
   }
