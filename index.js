@@ -2,7 +2,7 @@ var _= require('underscore');
 
 module.exports= function (opts)
 {
-    opts= _.defaults({ small: 10, big: 50, young: 20, old: 86400 });
+    opts= _.defaults(opts || {},{ small: 10, big: 50, young: 20, old: 86400 });
 
     var now= function ()
         {
