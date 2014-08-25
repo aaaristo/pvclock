@@ -119,8 +119,30 @@ module.exports= function (opts)
                 });
 
             return prune(merged);
-        };
+        },
+        converge= function (arr,pick,repair)
+        {
+           arr.sort(function (a,b)
+           {
+               return desc(pick(a),pick(b));
+           });
 
+           var first= arr.shift(),
+               converged= first ? [first] : [];
+
+           arr.forEach(function (elem, index)
+           {
+              var cmp= compare(pick(first), pick(elem));
+
+              if (cmp == 0.1)
+                converged.push(elem);
+              else
+              if (repair&&cmp>-1)
+                repair(elem);
+           });
+
+           return converged;
+        };
 
         return {
                   opts: opts,
@@ -135,6 +157,7 @@ module.exports= function (opts)
                   equal: equal,
                   asc: asc,
                   desc: desc,
+                  converge: converge,
                   
                   LT: -1,
                   GT: 1,
