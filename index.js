@@ -29,7 +29,7 @@ module.exports= function (opts)
             var hasMore= false,
                 hasLess= false;
 
-            var different= actors(a, b).some(function(actor)
+            var conflicting= actors(a, b).some(function(actor)
             {
                 var diff = val(a,actor) - val(b,actor);
 
@@ -40,7 +40,7 @@ module.exports= function (opts)
                 return (hasMore && hasLess);
             });
 
-            return different ? 0.1 : (hasMore ? 1 : (hasLess ? -1 : 0));
+            return conflicting ? 0.1 : (hasMore ? 1 : (hasLess ? -1 : 0));
         },
         concurrent= function (a,b)
         {
@@ -49,6 +49,10 @@ module.exports= function (opts)
         equal= function (a,b)
         {
             return compare(a,b) == 0; 
+        },
+        conflicting= function (a,b)
+        {
+            return compare(a,b) == 0.1;
         },
         asc= function (a,b)
         {
@@ -127,13 +131,14 @@ module.exports= function (opts)
                   compare: compare,
                   merge: merge,
                   concurrent: concurrent,
+                  conflicting: conflicting,
                   equal: equal,
                   asc: asc,
                   desc: desc,
                   
                   LT: -1,
                   GT: 1,
-                  DIFFERENT: 0.1,
+                  CONFLICTING: 0.1,
                   EQUAL: 0 
                };
 };
