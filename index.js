@@ -56,11 +56,23 @@ module.exports= function (opts)
         },
         asc= function (a,b)
         {
-            return Math.floor(compare(a,b));
+            var cmp= Math.floor(compare(a,b));
+
+            if (cmp==0)
+            {
+               var al= _.keys(a).length,
+                   bl= _.keys(b).length;
+
+               if (al<bl) return -1;
+               if (al>bl) return 1;
+               return 0;
+            }
+            else
+              return cmp;
         },
         desc= function (a,b)
         {
-            return -Math.floor(compare(a,b));
+            return -asc(a,b);
         },
         prune= function (clock)
         {
@@ -122,6 +134,9 @@ module.exports= function (opts)
         },
         converge= function (arr,pick,repair)
         {
+           pick= (typeof pick=='function' ?
+                 pick : function (elem) { return elem[pick]; });
+
            arr.sort(function (a,b)
            {
                return desc(pick(a),pick(b));
