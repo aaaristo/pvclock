@@ -149,7 +149,7 @@ module.exports= function (opts)
            {
               var cmp= compare(pick(first), pick(elem));
 
-              if (cmp == 0.1)
+              if (Math.floor(cmp) == 0)
                 converged.push(elem);
               else
               if (repair&&cmp>-1)
